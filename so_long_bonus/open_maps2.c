@@ -14,7 +14,6 @@
 
 void	open_win(t_so_long *s, int x, int y)
 {
-	ft_printf("Score: %d\n", s->count_step);
 	while (s->map[++y])
 	{
 		x = -1;
@@ -38,6 +37,8 @@ void	open_win(t_so_long *s, int x, int y)
 	}
 	mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->playerimg,
 		s->player_x * P, s->player_y * P);
+	mlx_put_image_to_window(s->mlx_ptr, s->mlx_win, s->enemyimg,
+		s->enemy_x * P, s->enemy_y * P);
 }
 
 int	close_window(t_so_long *s)
@@ -67,8 +68,11 @@ void	map_shows1(t_so_long *s)
 			"textures/door.xpm", &a, &b);
 	s->wall = mlx_xpm_file_to_image(s->mlx_ptr,
 			"textures/wall.xpm", &a, &b);
+	s->enemyimg = mlx_xpm_file_to_image(s->mlx_ptr,
+			"textures/holl.xpm", &a, &b);
 	open_win(s, -1, -1);
 	mlx_hook(s->mlx_win, 2, 0, movement, s);
 	mlx_hook(s->mlx_win, 17, 0, close_window, s);
+	mlx_loop_hook(s->mlx_ptr, hollmovement, s);
 	mlx_loop(s->mlx_ptr);
 }

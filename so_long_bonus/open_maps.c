@@ -18,7 +18,7 @@ void	player_movement(t_so_long *s, int x, int y)
 		return ;
 	if (s->map[s->player_y + y][s->player_x + x] == 'E' && s->count_c == 0)
 	{
-		ft_printf("Score: %d\nVICTORYYY!!!!\n", s->count_step + 1);
+		ft_printf("number of moves: %d\nVICTORYYY!!!!\n", s->count_step + 1);
 		game_end(s);
 	}
 	if (s->map[s->player_y + y][s->player_x + x] == 'C')
@@ -28,7 +28,6 @@ void	player_movement(t_so_long *s, int x, int y)
 		s->map[s->player_y][s->player_x] = '0';
 	s->player_y += y;
 	s->player_x += x;
-	open_win(s, -1, -1);
 }
 
 void	check_door(t_so_long *s, int a, int b)
