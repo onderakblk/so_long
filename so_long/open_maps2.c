@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_maps2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oakbulak <oakbulak@student.42kocaeli.com.  +#+  +:+       +#+        */
+/*   By: oakbulak <oakbulak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:53:58 by oakbulak          #+#    #+#             */
-/*   Updated: 2023/08/22 17:53:59 by oakbulak         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:39:54 by oakbulak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ void	map_shows1(t_so_long *s)
 			"textures/door.xpm", &a, &b);
 	s->wall = mlx_xpm_file_to_image(s->mlx_ptr,
 			"textures/wall.xpm", &a, &b);
+	if (!s->mlx_ptr || !s->mlx_win || !s->playerimg
+		|| !s->background || !s->coin || !s->door || !s->wall)
+		return (ft_printf("Errrrrrror\n"), game_end(s));
 	open_win(s, -1, -1);
 	mlx_hook(s->mlx_win, 2, 0, movement, s);
 	mlx_hook(s->mlx_win, 17, 0, close_window, s);

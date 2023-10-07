@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oakbulak <oakbulak@student.42kocaeli.com.  +#+  +:+       +#+        */
+/*   By: oakbulak <oakbulak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:46:27 by oakbulak          #+#    #+#             */
-/*   Updated: 2023/09/07 16:46:28 by oakbulak         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:56:22 by oakbulak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	timer(t_so_long *s)
 				"textures/coin2.xpm", &a, &b);
 	else
 		s->cointimer = 0;
+	if (!s->coin)
+		game_end(s);
 }
 
 int	enemy_anger(t_so_long *game)

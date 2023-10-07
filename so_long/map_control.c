@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_control.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oakbulak <oakbulak@student.42kocaeli.com.  +#+  +:+       +#+        */
+/*   By: oakbulak <oakbulak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:55:15 by oakbulak          #+#    #+#             */
-/*   Updated: 2023/08/22 17:55:18 by oakbulak         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:26:56 by oakbulak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,14 @@ void	map_control3(t_so_long *s, int x, int y)
 	map_control4(s, -1, -1);
 }
 
-void	map_controls2(t_so_long *s, char *tmp_map, int fd)
+void	map_controls2(t_so_long *s, char *tmp_map)
 {
 	s->map = ft_split(tmp_map, '\n');
+	if (!s->map)
+		return (ft_printf("Not opened map"), free(tmp_map), exit(1));
 	map_control3(s, -1, -1);
 	map_control5(s, ft_split(tmp_map, '\n'));
 	free(tmp_map);
-	close(fd);
 }
 
 void	map_control2(char *str, t_so_long *s)
@@ -106,5 +107,6 @@ void	map_control2(char *str, t_so_long *s)
 		tmp_map = tmp_tmp_map;
 		line = get_next_line(fd);
 	}
-	map_controls2(s, tmp_map, fd);
+	close(fd);
+	map_controls2(s, tmp_map);
 }

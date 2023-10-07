@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oakbulak <oakbulak@student.42kocaeli.com.  +#+  +:+       +#+        */
+/*   By: oakbulak <oakbulak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:38:58 by oakbulak          #+#    #+#             */
-/*   Updated: 2023/08/21 16:39:11 by oakbulak         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:58:07 by oakbulak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct s_control
 void	map_control5(t_so_long *s, char	**map);
 void	map_control4(t_so_long *s, int x, int y);
 void	map_control3(t_so_long *s, int x, int y);
-void	map_controls2(t_so_long *s, char *tmp_map, int fd);
+void	map_controls2(t_so_long *s, char *tmp_map);
 void	map_control2(char *str, t_so_long *s);
 void	map_control(char *str, t_so_long *s);
 void	player_movement(t_so_long *s, int x, int y);

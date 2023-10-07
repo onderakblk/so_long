@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.control2.c                                     :+:      :+:    :+:   */
+/*   map_control2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oakbulak <oakbulak@student.42kocaeli.com.  +#+  +:+       +#+        */
+/*   By: oakbulak <oakbulak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:00:14 by oakbulak          #+#    #+#             */
-/*   Updated: 2023/08/24 14:00:16 by oakbulak         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:05:44 by oakbulak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	map_control5(t_so_long *s, char	**map)
 {
 	t_control	control;
 
+	if (!map)
+		free_map(s);
 	control.is_the_door_accessible = 0;
 	control.the_amount_of_coins_we_can_reach = 0;
 	explore_map(map, &control, s->player_y, s->player_x);
@@ -75,5 +77,6 @@ void	map_control2(char *str, t_so_long *s)
 		tmp_map = tmp_tmp_map;
 		line = get_next_line(fd);
 	}
-	map_controls2(s, tmp_map, fd);
+	close(fd);
+	map_controls2(s, tmp_map);
 }

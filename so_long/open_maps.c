@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_maps.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oakbulak <oakbulak@student.42kocaeli.com.  +#+  +:+       +#+        */
+/*   By: oakbulak <oakbulak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 12:47:50 by oakbulak          #+#    #+#             */
-/*   Updated: 2023/08/22 12:47:52 by oakbulak         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:42:45 by oakbulak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,19 @@ void	charackter_show(t_so_long *s, char c)
 	a = 0;
 	b = 0;
 	if (c == 'w')
-	{
 		s->playerimg = mlx_xpm_file_to_image(s->mlx_ptr,
 				"textures/character_background.xpm", &a, &b);
-	}
 	if (c == 's')
-	{
 		s->playerimg = mlx_xpm_file_to_image(s->mlx_ptr,
 				"textures/character_front.xpm", &a, &b);
-	}
 	if (c == 'a')
-	{
 		s->playerimg = mlx_xpm_file_to_image(s->mlx_ptr,
 				"textures/character_left.xpm", &a, &b);
-	}
 	if (c == 'd')
-	{
 		s->playerimg = mlx_xpm_file_to_image(s->mlx_ptr,
 				"textures/character_right.xpm", &a, &b);
-	}
+	if (!s->playerimg)
+		return (ft_printf("Errorrrr\n"), game_end(s));
 }
 
 void	game_over(int a, t_so_long *s)
